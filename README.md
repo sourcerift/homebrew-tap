@@ -1,5 +1,9 @@
 # SourceRift Homebrew tap
 
-Binary distribution for SourceRift.
+Install on Apple Silicon with macOS 15 or newer:
 
-No releases are available yet.
+```sh
+brew install sourcerift/tap/sourcerift
+```
+
+Run `sourcerift` or its alias `srft`.
