@@ -3,11 +3,11 @@ class Sourcerift < Formula
   depends_on macos: :sequoia
   desc "A local cross-repository code explorer"
   homepage "https://github.com/sourcerift/homebrew-tap"
-  version "0.2.0"
+  version "0.3.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/sourcerift/homebrew-tap/releases/download/v0.2.0/sourcerift-aarch64-apple-darwin.tar.gz"
-      sha256 "3570bdfba38721e3be01a23b6009a3a5d14ff4f3b04b5ec8555188455642d1c3"
+      url "https://github.com/sourcerift/homebrew-tap/releases/download/v0.3.0/sourcerift-aarch64-apple-darwin.tar.gz"
+      sha256 "4a4486edf2141a7cfd775bc54924c67dbb4075e9afd7d92ea6387b0aadd9e525"
     end
   end
   license "MIT"
