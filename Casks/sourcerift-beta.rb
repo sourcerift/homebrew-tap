@@ -7,6 +7,11 @@ cask "sourcerift-beta" do
   desc "Terminal workspace for navigating code (beta channel)"
   homepage "https://github.com/sourcerift/homebrew-tap"
 
+  livecheck do
+    url "https://github.com/sourcerift/homebrew-tap.git"
+    regex(/^v?(\d+(?:\.\d+)+(?:-(?:alpha|beta|rc)\.\d+)?)$/i)
+  end
+
   depends_on arch: :arm64
   depends_on macos: :tahoe
 
