@@ -1,0 +1,56 @@
+name: Cask Check
+
+# Runs in this public repository, where GitHub-hosted runner minutes are free.
+on:
+  pull_request:
+    paths: [Casks/**, .github/workflows/cask-check.yml]
+  push:
+    branches: [main]
+    paths: [Casks/**, .github/workflows/cask-check.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cask-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: macos-latest
+    timeout-minutes: 15
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_CLEANUP: 1
+      HOMEBREW_NO_ANALYTICS: 1
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Tap this checkout
+        run: |
+          taps="$(brew --repository)/Library/Taps/sourcerift"
+          mkdir -p "$taps"
+          ln -sfn "$GITHUB_WORKSPACE" "$taps/homebrew-tap"
+          brew trust --tap sourcerift/tap
+
+      - name: Style
+        run: brew style --cask sourcerift/tap/sourcerift-beta
+
+      - name: Audit and install published releases
+        run: |
+          if grep -q '^  sha256 :no_check' Casks/sourcerift-beta.rb; then
+            echo "No release published yet; skipping audit and install."
+            exit 0
+          fi
+          brew audit --cask --online sourcerift/tap/sourcerift-beta
+          brew install --cask sourcerift/tap/sourcerift-beta
+          app=/Applications/SourceRift.app
+          codesign --verify --strict "$app"
+          version=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app/Contents/Info.plist")
+          cask_version=$(brew info --cask --json=v2 sourcerift/tap/sourcerift-beta | jq -r '.casks[0].version')
+          if [[ "$version" != "$cask_version" ]]; then
+            echo "::error::App reports $version, cask declares $cask_version"
+            exit 1
+          fi
+          brew uninstall --cask sourcerift/tap/sourcerift-beta

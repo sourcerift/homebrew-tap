@@ -1,15 +1,24 @@
 # Homebrew Tap for SourceRift
 
-This is the official [Homebrew](https://brew.sh/) tap for [SourceRift](https://github.com/sourcerift/sourcerift).
+The official [Homebrew](https://brew.sh/) tap for SourceRift, a terminal workspace for navigating code. This repository hosts the casks, public release notes, and compiled release downloads.
 
 ## Installation
 
 ```bash
 brew tap sourcerift/tap
+brew trust --tap sourcerift/tap
 brew install --cask sourcerift-beta
 ```
 
-## Available Casks
+Homebrew only loads casks from third-party taps you trust, so run `brew trust` once after tapping.
+
+Preview builds are not notarized yet. The first time you open SourceRift, macOS blocks it. Choose **Open Anyway** in **System Settings → Privacy & Security**, or remove the quarantine attribute:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/SourceRift.app
+```
+
+## Available casks
 
 | Cask | Description | Channel |
 |------|-------------|---------|
@@ -30,11 +39,9 @@ brew untap sourcerift/tap
 
 ## Requirements
 
-- macOS Sequoia (15.0) or later
+- macOS Sequoia 15.7 or later
 - Apple Silicon (arm64)
 
 ## Issues
 
-For issues with the tap or cask definitions, please open an issue in this repository.
-
-For issues with SourceRift itself, please open an issue in the [main repository](https://github.com/sourcerift/sourcerift/issues).
+Open an issue in this repository for problems with installation, the cask, or SourceRift itself.
