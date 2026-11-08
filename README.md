@@ -39,7 +39,7 @@ brew untap sourcerift/tap
 
 ## Requirements
 
-- macOS Sequoia 15.7 or later
+- macOS Tahoe 26 or later
 - Apple Silicon (arm64)
 
 ## Issues

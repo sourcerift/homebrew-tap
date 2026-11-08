@@ -8,7 +8,7 @@ cask "sourcerift-beta" do
   homepage "https://github.com/sourcerift/homebrew-tap"
 
   depends_on arch: :arm64
-  depends_on macos: :sequoia
+  depends_on macos: :tahoe
 
   app "SourceRift.app"
 
