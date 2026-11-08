@@ -1,6 +1,6 @@
 cask "sourcerift-beta" do
   version "0.1.0-alpha.1"
-  sha256 :no_check # Set by the first release
+  sha256 "4063fce8df8eec9f674d11a02b6e68891a4591df7a651843a6756a61de4b69da"
 
   url "https://github.com/sourcerift/homebrew-tap/releases/download/v#{version}/SourceRift-macOS-arm64.zip"
   name "SourceRift Beta"
