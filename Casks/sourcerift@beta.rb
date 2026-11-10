@@ -1,10 +1,10 @@
-cask "sourcerift-beta" do
+cask "sourcerift@beta" do
   version "0.1.0-alpha.5"
   sha256 "7b76ede1c41b3410c52d89cb3dfb206046bdc1e4982d9dc8a3327140bd7687c5"
 
   url "https://github.com/sourcerift/homebrew-tap/releases/download/v#{version}/SourceRift-macOS-arm64.zip"
   name "SourceRift Beta"
-  desc "Terminal workspace for navigating code (beta channel)"
+  desc "Terminal workspace for navigating code"
   homepage "https://github.com/sourcerift/homebrew-tap"
 
   livecheck do
@@ -12,6 +12,7 @@ cask "sourcerift-beta" do
     regex(/^v?(\d+(?:\.\d+)+(?:-(?:alpha|beta|rc)\.\d+)?)$/i)
   end
 
+  conflicts_with cask: "sourcerift"
   depends_on arch: :arm64
   depends_on macos: :tahoe
 
@@ -19,6 +20,7 @@ cask "sourcerift-beta" do
 
   zap trash: [
     "~/Library/Application Support/org.sourcerift.SourceRift",
+    "~/Library/Application Support/SourceRift",
     "~/Library/Caches/org.sourcerift.SourceRift",
     "~/Library/Preferences/org.sourcerift.SourceRift.plist",
   ]

@@ -7,33 +7,32 @@ The official [Homebrew](https://brew.sh/) tap for SourceRift, a terminal workspa
 ```bash
 brew tap sourcerift/tap
 brew trust --tap sourcerift/tap
-brew install --cask sourcerift-beta
+brew install --cask sourcerift
 ```
 
 Homebrew only loads casks from third-party taps you trust, so run `brew trust` once after tapping.
 
-Preview builds are not notarized yet. The first time you open SourceRift, macOS blocks it. Choose **Open Anyway** in **System Settings → Privacy & Security**, or remove the quarantine attribute:
-
-```bash
-xattr -dr com.apple.quarantine /Applications/SourceRift.app
-```
+SourceRift is signed with a Developer ID and notarized by Apple.
 
 ## Available casks
 
 | Cask | Description | Channel |
 |------|-------------|---------|
-| `sourcerift-beta` | SourceRift pre-release builds | Alpha/Beta/RC |
+| `sourcerift` | SourceRift stable releases | Stable |
+| `sourcerift@beta` | The newest build: pre-releases, or the stable release when it is newer | Alpha/Beta/RC |
+
+Both casks install `SourceRift.app`, so install one or the other. To switch, uninstall the one you have first. `sourcerift@beta` was called `sourcerift-beta`; Homebrew moves existing installs to the new name.
 
 ## Updating
 
 ```bash
-brew upgrade --cask sourcerift-beta
+brew upgrade --cask sourcerift        # or: sourcerift@beta
 ```
 
 ## Uninstalling
 
 ```bash
-brew uninstall --cask sourcerift-beta
+brew uninstall --cask sourcerift      # or: sourcerift@beta
 brew untap sourcerift/tap
 ```
 
