@@ -3,10 +3,10 @@ name: Cask Check
 # Runs in this public repository, where GitHub-hosted runner minutes are free.
 on:
   pull_request:
-    paths: [Casks/**, cask_renames.json, .github/workflows/cask-check.yml]
+    paths: [Casks/**, audit_exceptions/**, cask_renames.json, .github/workflows/cask-check.yml]
   push:
     branches: [main]
-    paths: [Casks/**, cask_renames.json, .github/workflows/cask-check.yml]
+    paths: [Casks/**, audit_exceptions/**, cask_renames.json, .github/workflows/cask-check.yml]
   workflow_dispatch:
 
 permissions:
