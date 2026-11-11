@@ -24,10 +24,4 @@ cask "sourcerift@beta" do
     "~/Library/Caches/org.sourcerift.SourceRift",
     "~/Library/Preferences/org.sourcerift.SourceRift.plist",
   ]
-
-  caveats <<~EOS
-    Preview builds are not notarized. The first time you open SourceRift, macOS
-    blocks it. Choose Open Anyway in System Settings > Privacy & Security, or run:
-      xattr -dr com.apple.quarantine "#{appdir}/SourceRift.app"
-  EOS
 end
