@@ -5,7 +5,7 @@ cask "sourcerift@beta" do
   url "https://github.com/sourcerift/homebrew-tap/releases/download/v#{version}/SourceRift-macOS-arm64.zip"
   name "SourceRift Beta"
   desc "Terminal workspace for navigating code"
-  homepage "https://github.com/sourcerift/homebrew-tap"
+  homepage "https://sourcerift.com/"
 
   livecheck do
     url "https://github.com/sourcerift/homebrew-tap.git"

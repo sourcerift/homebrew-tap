@@ -1,6 +1,6 @@
 # Homebrew Tap for SourceRift
 
-The official [Homebrew](https://brew.sh/) tap for SourceRift, a terminal workspace for navigating code. This repository hosts the casks, public release notes, and compiled release downloads.
+The official [Homebrew](https://brew.sh/) tap for [SourceRift](https://sourcerift.com), a terminal workspace for navigating code. This repository hosts the casks, public release notes, and compiled release downloads.
 
 ## Installation
 
