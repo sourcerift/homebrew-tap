@@ -1,6 +1,6 @@
 cask "sourcerift" do
-  version "0.3.1"
-  sha256 "4c4dd5298f08fad9d93e220562423d917533dbcba2899f761e75ace072148285"
+  version "0.3.2"
+  sha256 "4b9899934958e3f1ce5f60c2fe58f5c1845da72a11d028dbf36d25d8c2a0f45a"
 
   url "https://github.com/sourcerift/homebrew-tap/releases/download/v#{version}/SourceRift-macOS-arm64.zip"
   name "SourceRift"
